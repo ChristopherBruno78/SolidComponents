@@ -1,0 +1,26 @@
+.title {
+   font-size: 18px;
+   color:#fff;
+}
+
+.main {
+   flex:1;
+   width:100%;
+   background-color:#e0e0e0;
+}
+
+.container {
+   margin:40px;
+   display: flex;
+   flex-direction: column;
+}
+
+.container > button {
+   margin:10px;
+   width:120px;
+}
+
+.container > button.iconOnly {
+   width:34px;
+   height:34px;
+}

@@ -1,0 +1,131 @@
+
+.Button {
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    background: none;
+    height: 34px;
+    position: relative;
+    line-height: 100%;
+    transition: background-color 0.1s, color 0.1s, opacity 0.1s;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 14px 0 10px;
+}
+
+.Button > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Button .label {
+    flex: 1;
+    pointer-events: none;
+}
+
+button.Button.disabled {
+    opacity: 0.7;
+}
+
+button.Button.disabled .icon,
+button.Button.disabled .label {
+    opacity: 0.7;
+}
+
+.Button .icon {
+    font-size: 21px;
+    margin-right:5px;
+}
+
+.iconOnly > div {
+    justify-content: center;
+}
+
+.Button.focused {
+    outline: 1px dotted #bbbbbb;
+}
+
+.Button.default {
+    background-color: #f5f5f5;
+    border: 1px solid #d5d9dd;
+    color: #4f4f4f;
+}
+
+.Button.default.active {
+    background-color: #dcdcdd;
+}
+
+.Button.default:not(.active):hover {
+    background-color: #e9e9ea;
+}
+
+.Button.primary {
+    background-color:var(--accent-color);
+    border: 1px solid #2a6dae;
+    color: #fff;
+}
+
+.Button.primary.active {
+    background-color: var(--accent-color-darker);
+}
+
+.Button.primary:not(.active):hover {
+    background-color:  var(--accent-color-lighter);
+}
+
+.Button.link {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #4f8ee5;
+    cursor: pointer;
+}
+
+.Button.link > * {
+    cursor: pointer;
+}
+
+.Button.link:hover {
+    text-decoration: underline;
+}
+
+.Button.link.active {
+    background-color: #e9e9ea;
+}
+
+.Button.link:not(.active):hover {
+    background-color: #f1f1f3;
+}
+
+.Button.noIcon {
+    padding: 0 20px;
+}
+
+.Button.iconOnly {
+    padding: 0 5px;
+    min-width: 34px;
+    min-height: 34px;
+}
+
+.Button.iconOnly .icon {
+    margin:0;
+    font-size:23px;
+}
+
+:global(.ToolBar) .Button.default {
+    border:none;
+    background-color: transparent;
+    color:#fff;
+}
+
+:global(.ToolBar) .Button.default:not(.active):hover {
+    background-color:#357bbf;
+}
+
+:global(.ToolBar) .Button.default.active {
+    background-color: #26629c;
+}
