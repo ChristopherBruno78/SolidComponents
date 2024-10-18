@@ -1,6 +1,6 @@
 import Button from "./Button";
 import { ToolBar, ToolBarFlexItem } from "./ToolBar";
 
-import "./Colors.module.css";
+import "./colors.css";
 
 export { Button, ToolBar, ToolBarFlexItem };

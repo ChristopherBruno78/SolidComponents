@@ -3,17 +3,17 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 
 import "./index.css";
-import ToolBarDemo from "./ToolBarDemo";
-import ButtonDemo from "./ButtonDemo";
+import ToolBarTest from "./ToolBarTest";
+import ButtonTest from "./ButtonTest";
 
 const routes = [
   {
     path: "toolbar",
-    component: <ToolBarDemo />,
+    component: <ToolBarTest />,
   },
   {
     path: "buttons",
-    component: <ButtonDemo />,
+    component: <ButtonTest />,
   },
 ];
 

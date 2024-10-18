@@ -1,7 +1,7 @@
-import styles from "./Demo.module.css";
-import { Button } from "../index";
+import styles from "./Test.module.css";
+import { Button } from "../src";
 
-const ButtonDemo = () => {
+const ButtonTest = () => {
   return (
     <div className={styles.container}>
       <Button
@@ -27,4 +27,4 @@ const ButtonDemo = () => {
   );
 };
 
-export default ButtonDemo;
+export default ButtonTest;

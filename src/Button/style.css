@@ -116,16 +116,16 @@ button.Button.disabled .label {
     font-size:23px;
 }
 
-:global(.ToolBar) .Button.default {
+.ToolBar .Button.default {
     border:none;
     background-color: transparent;
     color:#fff;
 }
 
-:global(.ToolBar) .Button.default:not(.active):hover {
+.ToolBar .Button.default:not(.active):hover {
     background-color:#357bbf;
 }
 
-:global(.ToolBar) .Button.default.active {
+.ToolBar .Button.default.active {
     background-color: #26629c;
 }

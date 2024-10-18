@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from "../Components.module.css";
 import { createSignal } from "solid-js";
 
 /**

@@ -1,4 +1,4 @@
-import styles from "./ToolBar.module.css";
+import styles from "../Components.module.css";
 import { ToolBarFlexItem } from "./ToolBarFlexItem";
 
 /**
@@ -9,7 +9,9 @@ import { ToolBarFlexItem } from "./ToolBarFlexItem";
  */
 const ToolBar = (props) => {
   return (
-    <div className={"ToolBar " + (props.styleName || "")}>{props.children}</div>
+    <div className={styles.ToolBar + " " + (props.styleName || "")}>
+      {props.children}
+    </div>
   );
 };
 

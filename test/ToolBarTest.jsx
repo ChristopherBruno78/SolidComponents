@@ -1,7 +1,7 @@
-import styles from "./Demo.module.css";
-import { Button, ToolBar, ToolBarFlexItem } from "../index";
+import styles from "./Test.module.css";
+import { Button, ToolBar, ToolBarFlexItem } from "../src";
 
-function ToolBarDemo() {
+function ToolBarTest() {
   return (
     <>
       <ToolBar>
@@ -15,4 +15,4 @@ function ToolBarDemo() {
   );
 }
 
-export default ToolBarDemo;
+export default ToolBarTest;

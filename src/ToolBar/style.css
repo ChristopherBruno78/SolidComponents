@@ -1,5 +1,6 @@
 
-:global(.ToolBar) {
+
+.ToolBar {
     height: 46px;
     margin: 0;
     white-space: nowrap;
@@ -15,11 +16,11 @@
     color: #fafafa;
 }
 
-:global(.ToolBar) > * {
+.ToolBar > * {
     margin:0 6px;
 }
 
-:global(.ToolBar) .ToolBarDivider {
+.ToolBar .ToolBarDivider {
     display: inline-block;
     height: 32px;
     width: 1px;
