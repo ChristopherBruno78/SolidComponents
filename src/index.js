@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import Button from "./Button";
 import { ToolBar, ToolBarFlexItem } from "./ToolBar";
 
 import "./Colors.module.css";

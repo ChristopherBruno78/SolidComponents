@@ -17,7 +17,7 @@ const ButtonDemo = () => {
         iconOnly={true}
         toggle={true}
         onToggle={(state) => {
-          alert(state);
+          console.log(state);
         }}
         tooltip={"Icon Only"}
         icon={"las la-search"}

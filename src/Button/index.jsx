@@ -22,24 +22,47 @@ const Button = (props) => {
 
   const [active, setActive] = createSignal(false);
 
+  const toggleActive = () => {
+    setActive(!active());
+    if (onToggle) {
+      onToggle.call(this, active());
+    }
+  };
+
   const pointerDown = (evt) => {
-    if (!toggle) {
-      setActive(true);
-    } else {
-      setActive(!active());
-      if (onToggle) {
-        onToggle.call(this, active());
+    if (evt.button === 0) {
+      if (!toggle) {
+        setActive(true);
+      } else {
+        toggleActive();
       }
     }
   };
 
-  const pointerUp = (evt) => {
+  const pointerUp = () => {
     if (!toggle) {
       setActive(false);
     }
   };
 
-  const pointerLeave = (evt) => {
+  const pointerLeave = () => {
+    if (!toggle) {
+      setActive(false);
+    }
+  };
+
+  const keyDown = (evt) => {
+    const key = evt.code;
+    if (key === "Enter" || key === "Space") {
+      if (!toggle) {
+        setActive(true);
+      } else {
+        toggleActive();
+      }
+    }
+  };
+
+  const keyUp = () => {
     if (!toggle) {
       setActive(false);
     }
@@ -51,6 +74,8 @@ const Button = (props) => {
       on:pointerup={pointerUp}
       on:pointerleave={pointerLeave}
       on:click={onClick}
+      on:keydown={keyDown}
+      on:keyup={keyUp}
       classList={{
         [styles.Button]: true,
         [styles.default]: !type,
@@ -70,4 +95,4 @@ const Button = (props) => {
   );
 };
 
-export { Button };
+export default Button;
