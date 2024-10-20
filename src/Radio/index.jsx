@@ -96,6 +96,9 @@ const RadioGroup = (props) => {
     }
     if (i > -1 && i < values.length) {
       setValue(values[i]);
+      if (props.valueChanged) {
+        props.valueChanged(value());
+      }
     }
   };
 
