@@ -50,6 +50,7 @@ const CheckBox = (props) => {
         [styles.hidden]: props.hidden,
         [props.styleName]: props.styleName,
       }}
+      tabindex={props.disabled ? -1 : 0}
       aria-disabled={props.disabled}
       aria-checked={value()}
       aria-labelledby={labelId}

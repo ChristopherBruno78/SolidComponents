@@ -42,13 +42,13 @@
     border-color: var(--accent-color-darker);
 }
 
-.CheckBox.focused {
+.CheckBox:focus {
     border: none;
     outline: none;
 }
 
-.Checkbox.focused > .indicator {
-    outline: 2px dashed #bbb;
+.CheckBox:focus > .indicator {
+    outline: var(--focus-outline);
 }
 
 .CheckBox > input {

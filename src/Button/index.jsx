@@ -31,8 +31,9 @@ const Button = (props) => {
   };
 
   const pointerDown = (evt) => {
-    if (props.disabled) return;
     if (evt.button === 0) {
+      evt.preventDefault();
+      if (props.disabled) return;
       if (!props.toggle) {
         setActive(true);
       } else {
@@ -96,6 +97,7 @@ const Button = (props) => {
         [styles.hidden]: props.hidden,
         [props.styleName]: props.styleName,
       }}
+      tabindex={props.disabled ? -1 : 0}
       aria-disabled={props.disabled}
       title={props.tooltip || ""}
       {...props.attrs}

@@ -4,15 +4,16 @@
     padding-left: 22px;
     text-transform: none;
     width: fit-content;
-    margin: 2px 0 2px 0;
+    margin: 12px 0 12px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .Radio > .label {
+    margin-top:-1px;
     padding: 0 5px 0 5px;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 100%;
     user-select: none;
 }
@@ -74,7 +75,7 @@
     cursor: default;
 }
 
-.Radio.focused {
+.Radio:focus {
     border: none;
     outline: none;
 }
@@ -84,12 +85,12 @@ ul.RadioGroup {
     padding:0;
 }
 
-ul.RadioGroup.focused,
-.Radio.focused {
+ul.RadioGroup:focus,
+.Radio:focus {
     border: none;
     outline: none;
 }
 
-.RadioGroup.focused .Radio .indicator.checked {
-    outline: 2px dashed #bbb;
+.RadioGroup:focus .Radio .indicator.checked {
+    outline: var(--focus-outline);
 }

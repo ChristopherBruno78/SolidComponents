@@ -3,4 +3,5 @@
     --accent-color-lighter: #5298D9;
     --accent-color-darker: #3270AA;
     --opacity-disable: 0.7;
+    --focus-outline:1px solid #bbb;
 }

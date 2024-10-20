@@ -76,6 +76,6 @@
     cursor: default;
 }
 
-.Switch.focused .indicator {
-    outline: 2px dashed #bbb;
+.Switch:focus .indicator {
+    outline: var(--focus-outline);
 }

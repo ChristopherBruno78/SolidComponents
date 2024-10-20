@@ -1,5 +1,5 @@
 import styles from "./Test.module.css";
-import { Button, CheckBox, Switch } from "../src";
+import { Button, CheckBox, Radio, RadioGroup, Switch } from "../src";
 import { createSignal } from "solid-js";
 
 const ControlsTest = () => {
@@ -30,6 +30,17 @@ const ControlsTest = () => {
       />
       <CheckBox label={"Check Me"} disabled={disabled()} />
       <Switch label={"Switch Me"} disabled={disabled()} />
+      <RadioGroup
+        disabled={disabled()}
+        valueChanged={(value) => {
+          alert(value);
+        }}
+        value={"r2"}
+      >
+        <Radio label={"Radio 1"} value={"r1"} />
+        <Radio label={"Radio 2"} value={"r2"} />
+        <Radio label={"Radio 3"} value={"r3"} disabled={false} />
+      </RadioGroup>
       <Button
         label={disabled() ? "Enable" : "Disable"}
         onClick={() => {

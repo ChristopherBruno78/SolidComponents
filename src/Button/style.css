@@ -47,8 +47,8 @@
     justify-content: center;
 }
 
-.Button.focused {
-    outline: 1px dotted #bbbbbb;
+.Button:focus {
+    outline: var(--focus-outline);
 }
 
 .Button.default {
@@ -81,12 +81,10 @@
 
 .Button.link {
     background-color: transparent;
-    border: 1px solid transparent;
+    border: none;
     color: #4f8ee5;
     cursor: pointer;
 }
-
-
 
 .Button.link:not(.disabled) > * {
     cursor: pointer;
