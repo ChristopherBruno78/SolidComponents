@@ -1,0 +1,95 @@
+.Radio {
+    position: relative;
+    min-height: 20px;
+    padding-left: 22px;
+    text-transform: none;
+    width: fit-content;
+    margin: 2px 0 2px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Radio > .label {
+    padding: 0 5px 0 5px;
+    font-size: 15px;
+    line-height: 100%;
+    user-select: none;
+}
+
+.Radio > .indicator {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    background-clip: padding-box;
+    width: 17px;
+    height: 17px;
+    line-height: 100%;
+    border-radius: 50%;
+    font-size: 6px;
+    font-weight: 400;
+    font-style: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    z-index: 0;
+    transition-property: background-color;
+    background: #fafafa;
+    border: 2px solid #c5c9cc;
+}
+
+
+.Radio > .indicator:before {
+    position: relative;
+    content: "";
+    transition: background-color .2s linear;
+}
+
+.Radio >  .indicator.checked {
+    box-shadow: none;
+    background-color: #ffffff;
+    border-color: var(--accent-color-darker);
+}
+
+.Radio > .indicator.checked:before {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background: var(--accent-color);
+}
+
+.Radio.disabled,
+.Radio.disabled > .indicator,
+.Radio.disabled > .label {
+    opacity: var(--opacity-disable);
+    cursor: default;
+}
+
+.Radio.disabled  {
+    cursor: default;
+}
+
+.Radio.focused {
+    border: none;
+    outline: none;
+}
+
+ul.RadioGroup {
+    display: block;
+    padding:0;
+}
+
+ul.RadioGroup.focused,
+.Radio.focused {
+    border: none;
+    outline: none;
+}
+
+.RadioGroup.focused .Radio .indicator.checked {
+    outline: 2px dashed #bbb;
+}

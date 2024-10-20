@@ -35,7 +35,7 @@
 
 .Button.disabled .icon,
 .Button.disabled .label {
-    opacity: 0.75;
+    opacity: var(--opacity-disable);
 }
 
 .Button .icon {
@@ -67,7 +67,7 @@
 
 .Button.primary {
     background-color:var(--accent-color);
-    border: 1px solid #2a6dae;
+    border: 1px solid var(--accent-color-darker);
     color: #fff;
 }
 
