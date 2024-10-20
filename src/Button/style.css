@@ -28,13 +28,14 @@
     pointer-events: none;
 }
 
-button.Button.disabled {
-    opacity: 0.7;
+.Button.disabled {
+    opacity: var(--opacity-disable);
+    cursor:default !important;
 }
 
-button.Button.disabled .icon,
-button.Button.disabled .label {
-    opacity: 0.7;
+.Button.disabled .icon,
+.Button.disabled .label {
+    opacity: 0.75;
 }
 
 .Button .icon {
@@ -57,10 +58,10 @@ button.Button.disabled .label {
 }
 
 .Button.default.active {
-    background-color: #dcdcdd;
+    background-color: #ddd;
 }
 
-.Button.default:not(.active):hover {
+.Button.default:not(.active):not(.disabled):hover {
     background-color: #e9e9ea;
 }
 
@@ -74,7 +75,7 @@ button.Button.disabled .label {
     background-color: var(--accent-color-darker);
 }
 
-.Button.primary:not(.active):hover {
+.Button.primary:not(.active):not(.disabled):hover {
     background-color:  var(--accent-color-lighter);
 }
 
@@ -85,11 +86,13 @@ button.Button.disabled .label {
     cursor: pointer;
 }
 
-.Button.link > * {
+
+
+.Button.link:not(.disabled) > * {
     cursor: pointer;
 }
 
-.Button.link:hover {
+.Button.link:not(.disabled):hover {
     text-decoration: underline;
 }
 
@@ -97,7 +100,7 @@ button.Button.disabled .label {
     background-color: #e9e9ea;
 }
 
-.Button.link:not(.active):hover {
+.Button.link:not(.disabled):not(.active):hover {
     background-color: #f1f1f3;
 }
 
@@ -114,18 +117,4 @@ button.Button.disabled .label {
 .Button.iconOnly .icon {
     margin:0;
     font-size:23px;
-}
-
-.ToolBar .Button.default {
-    border:none;
-    background-color: transparent;
-    color:#fff;
-}
-
-.ToolBar .Button.default:not(.active):hover {
-    background-color:#357bbf;
-}
-
-.ToolBar .Button.default.active {
-    background-color: #26629c;
 }

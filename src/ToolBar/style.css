@@ -30,3 +30,17 @@
     box-sizing: border-box;
 }
 
+.ToolBar .Button.default {
+    border:none;
+    background-color: transparent;
+    color:#fff;
+}
+
+.ToolBar .Button.default:not(.active):hover {
+    background-color:#357bbf;
+}
+
+.ToolBar .Button.default.active {
+    background-color: #26629c;
+}
+

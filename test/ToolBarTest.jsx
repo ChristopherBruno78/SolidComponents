@@ -6,7 +6,7 @@ function ToolBarTest() {
     <>
       <ToolBar>
         <div className={styles.title}>Title Here</div>
-        <Button title={"ToolBar Button"} />
+        <Button label={"Button"} />
         <ToolBarFlexItem />
         <Button iconOnly={true} icon={"las la-bars"} toggle={true} />
       </ToolBar>

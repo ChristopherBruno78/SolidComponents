@@ -1,5 +1,6 @@
 :root {
     --accent-color: #3f8cd5;
-    --accent-color-lighter: #4694dd;
+    --accent-color-lighter: #5598d4;
     --accent-color-darker: #2b6faf;
+    --opacity-disable: 0.7;
 }

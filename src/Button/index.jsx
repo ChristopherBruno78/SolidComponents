@@ -1,37 +1,39 @@
 import styles from "../Components.module.css";
-import { createSignal } from "solid-js";
+import { createMemo, createSignal, createUniqueId } from "solid-js";
 
 /**
- *
- * @param props
+ * @param {{
+ *     id
+ *     type,
+ *     label,
+ *     icon,
+ *     iconOnly,
+ *     onClick,
+ *     styleName,
+ *     tooltip,
+ *     toggle,
+ *     onToggle,
+ *     disabled,
+ *     hidden,
+ *     attrs
+ * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor
  */
 const Button = (props) => {
-  const {
-    title,
-    type,
-    icon,
-    iconOnly,
-    onClick,
-    styleName,
-    tooltip,
-    toggle,
-    onToggle,
-  } = props;
-
   const [active, setActive] = createSignal(false);
 
   const toggleActive = () => {
     setActive(!active());
-    if (onToggle) {
-      onToggle.call(this, active());
+    if (props.onToggle) {
+      props.onToggle.call(this, active());
     }
   };
 
   const pointerDown = (evt) => {
+    if (props.disabled) return;
     if (evt.button === 0) {
-      if (!toggle) {
+      if (!props.toggle) {
         setActive(true);
       } else {
         toggleActive();
@@ -40,21 +42,22 @@ const Button = (props) => {
   };
 
   const pointerUp = () => {
-    if (!toggle) {
+    if (!props.toggle) {
       setActive(false);
     }
   };
 
   const pointerLeave = () => {
-    if (!toggle) {
+    if (!props.toggle) {
       setActive(false);
     }
   };
 
   const keyDown = (evt) => {
+    if (props.disabled) return;
     const key = evt.code;
     if (key === "Enter" || key === "Space") {
-      if (!toggle) {
+      if (!props.toggle) {
         setActive(true);
       } else {
         toggleActive();
@@ -63,33 +66,45 @@ const Button = (props) => {
   };
 
   const keyUp = () => {
-    if (!toggle) {
+    if (!props.toggle) {
       setActive(false);
     }
   };
-
+  const id = props.id || createUniqueId();
   return (
     <button
+      id={id}
       on:pointerdown={pointerDown}
       on:pointerup={pointerUp}
       on:pointerleave={pointerLeave}
-      on:click={onClick}
+      on:click={(evt) => {
+        if (props.disabled) return;
+        if (props.onClick) {
+          props.onClick(evt);
+        }
+      }}
       on:keydown={keyDown}
       on:keyup={keyUp}
       classList={{
         [styles.Button]: true,
-        [styles.default]: !type,
-        [styles[type]]: type,
-        [styles.iconOnly]: iconOnly,
-        [styles.noIcon]: !icon,
+        [styles.default]: !props.type,
+        [styles[props.type]]: props.type,
+        [styles.iconOnly]: props.iconOnly,
+        [styles.noIcon]: !props.icon,
+        [styles.disabled]: props.disabled,
         [styles.active]: active(),
-        [styleName]: styleName,
+        [styles.hidden]: props.hidden,
+        [props.styleName]: props.styleName,
       }}
-      title={tooltip || ""}
+      aria-disabled={props.disabled}
+      title={props.tooltip || ""}
+      {...props.attrs}
     >
       <div>
-        {icon ? <i className={styles.icon + " " + icon}></i> : null}
-        {!iconOnly ? <label className={styles.label}>{title}</label> : null}
+        {props.icon ? <i className={styles.icon + " " + props.icon}></i> : null}
+        {!props.iconOnly ? (
+          <label className={styles.label}>{props.label}</label>
+        ) : null}
       </div>
     </button>
   );

@@ -4,7 +4,7 @@ import { Router } from "@solidjs/router";
 
 import "./index.css";
 import ToolBarTest from "./ToolBarTest";
-import ButtonTest from "./ButtonTest";
+import ControlsTest from "./ControlsTest";
 
 const routes = [
   {
@@ -12,8 +12,8 @@ const routes = [
     component: <ToolBarTest />,
   },
   {
-    path: "buttons",
-    component: <ButtonTest />,
+    path: "controls",
+    component: <ControlsTest />,
   },
 ];
 

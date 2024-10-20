@@ -1,0 +1,90 @@
+.CheckBox {
+    position: relative;
+    min-height: 20px;
+    text-transform: none;
+    width: fit-content;
+    line-height: 23px;
+    display: inline-block;
+    padding: 0 2px 1px 22px;
+    overflow: visible;
+}
+
+.CheckBox > .label {
+    font-size: 15px;
+    cursor: default;
+    display: block;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+.CheckBox > .indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    margin: 0;
+    border: 2px solid #c5c9cc;
+    background-clip: padding-box;
+    cursor: default;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+    border-radius: 3px;
+    -webkit-font-smoothing: antialiased;
+    z-index: 0;
+    background: #f5f8fa;
+    overflow: visible;
+    transition: background-color .1s ease-in-out;
+}
+
+.CheckBox > .indicator.checked {
+    color: #292929;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color-darker);
+}
+
+.CheckBox.focused {
+    border: none;
+    outline: none;
+}
+
+.Checkbox.focused > .indicator {
+    outline: 2px dashed #bbb;
+}
+
+.CheckBox > input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: default;
+    width: 15px;
+    height: 16px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.CheckBox.disabled,
+.CheckBox.disabled > .indicator,
+.CheckBox.disabled > .label {
+    opacity: var(--opacity-disable);
+    cursor: default;
+}
+
+.CheckBox.disabled  {
+    cursor: default;
+}
+
+.CheckBox .check {
+    width: 140%;
+    height: 140%;
+    overflow: visible;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3ZnLWljb24iIHN0eWxlPSJ3aWR0aDogMWVtOyBoZWlnaHQ6IDFlbTt2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO2ZpbGw6IGN1cnJlbnRDb2xvcjtvdmVyZmxvdzogaGlkZGVuOyIKICAgICB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNNzk4LjI5MzMzMyAzMDcuNjI2NjY3YTQyLjY2NjY2NyA0Mi42NjY2NjcgMCAwIDAtNjAuNTg2NjY2IDBsLTMxNy44NjY2NjcgMzE4LjI5MzMzMy0xMzMuNTQ2NjY3LTEzMy45NzMzMzNBNDIuNjY2NjY3IDQyLjY2NjY2NyAwIDEgMCAyMjUuNzA2NjY3IDU1NC42NjY2NjdsMTYzLjg0IDE2My44NGE0Mi42NjY2NjcgNDIuNjY2NjY3IDAgMCAwIDYwLjU4NjY2NiAwbDM0OC4xNi0zNDguMTZhNDIuNjY2NjY3IDQyLjY2NjY2NyAwIDAgMCAwLTYyLjcyeiIvPgo8L3N2Zz4=);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: -3px -4px;
+    display: none;
+    filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(536%) hue-rotate(344deg) brightness(120%) contrast(100%);
+}
+
+.CheckBox .check.checked {
+    display: block;
+}

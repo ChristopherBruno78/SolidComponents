@@ -15,9 +15,10 @@
    flex-direction: column;
 }
 
-.container > button {
+.container > * {
    margin:10px;
-   width:120px;
+   min-width:120px;
+   width:fit-content;
 }
 
 .container > button.iconOnly {

@@ -1,0 +1,81 @@
+.Switch {
+    padding: 3px 3px 3px 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    cursor: default;
+    min-height: 16px;
+    text-transform: none;
+    line-height: 15px;
+    width: fit-content;
+    box-sizing: border-box;
+    outline: 3px solid transparent;
+}
+
+.Switch > .indicator {
+    border-radius: 28px;
+    box-shadow: none;
+    width: 36px;
+    transition: background 100ms cubic-bezier(0.4, 1, 0.75, 0.9);
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    margin: 0;
+    background-clip: padding-box;
+    cursor: default;
+    line-height: 16px;
+    background-color: #c5c9cc;
+    border: 1px solid #c5c9cc;
+    height: 14px;
+}
+
+.Switch > .indicator:before {
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+    background-clip: padding-box;
+    width: 17px;
+    height: 17px;
+    content: "";
+    transition: left 100ms cubic-bezier(0.4, 1, 0.75, 0.9);
+    position: relative;
+    background: #ffffff;
+    border: 2px solid #c4c9cc;
+    top: -3px;
+    left: -1px;
+}
+
+.Switch.checked > .indicator {
+    box-shadow: none;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color-darker);
+}
+
+.Switch.checked > .indicator:before {
+    left: 16px;
+    border: 2px solid var(--accent-color-darker);
+}
+
+.Switch > .label {
+    margin-top: 0;
+    margin-left: 8px;
+    font-size: 15px;
+    cursor: default;
+    padding: 0;
+}
+.Switch.disabled,
+.Switch.disabled .label,
+.Switch.disabled .indicator {
+    opacity: var(--opacity-disable);
+    cursor: default;
+}
+
+.Switch.focused .indicator {
+    outline: 2px dashed #bbb;
+}
