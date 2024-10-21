@@ -1,22 +1,49 @@
 import styles from "../Components.module.css";
-import { createSignal, createUniqueId } from "solid-js";
+import { createSignal, createUniqueId, onMount } from "solid-js";
 import { ScrollView } from "../index";
+
+const ListItem = (props) => {
+  return <div>{props.children}</div>;
+};
 
 /**
  *
  * @param {{
  *     id,
  *     content : Array
+ *     renderItem : function
+ *     styleName: string,
+ *     attrs: object
  * }} props
  * @constructor
  */
 const ListView = (props) => {
   const id = props.id || createUniqueId();
   const [renderRange, setRenderRange] = createSignal({
-    pos: 0,
-    len: Number.MAX_VALUE,
+    start: 0,
+    end: Number.MAX_VALUE,
   });
-  const [contentPane, setContentPane] = createSignal(null);
+  const [itemsToInsert, setItemsToInsert] = createSignal([]);
+
+  onMount(() => {
+    const range = renderRange();
+    let start = Math.max(0, range.start),
+      end = Math.min(props.content.length, range.end);
+
+    const toInsert = [];
+
+    if (end > start) {
+      for (let i = start; i < end; i++) {
+        const item = props.content[i];
+        toInsert.push(
+          <ListItem list={this} key={i}>
+            {props.renderItem(item)}
+          </ListItem>,
+        );
+      }
+    }
+    setItemsToInsert(toInsert);
+  });
 
   return (
     <div
@@ -24,10 +51,12 @@ const ListView = (props) => {
       role={"listbox"}
       classList={{
         [styles.List]: true,
+        [props.styleName]: props.styleName,
       }}
+      {...props.attrs}
     >
       <ScrollView>
-        <div ref={setContentPane} />
+        <div>{itemsToInsert()}</div>
       </ScrollView>
     </div>
   );

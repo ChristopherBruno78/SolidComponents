@@ -3,9 +3,10 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 
 import "./index.css";
-import ToolBarTest from "./ToolBarTest";
-import ControlsTest from "./ControlsTest";
-import SplitViewTest from "./SplitViewTest";
+import ToolBarTest from "./ToolBar.test";
+import ControlsTest from "./Controls.test";
+import SplitViewTest from "./SplitView.test";
+import ListViewTest from "./ListView.test";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: "splitview",
     component: /*@once*/ <SplitViewTest />,
+  },
+  {
+    path: "list",
+    component: /*@once*/ <ListViewTest />,
   },
 ];
 

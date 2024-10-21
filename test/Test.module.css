@@ -38,4 +38,19 @@
    background:#fff;
 }
 
+.listContainer {
+   width:300px;
+   height:300px;
+   margin:50px;
+}
+
+.listItem {
+   padding:8px;
+
+}
+
+.listItem:hover {
+   background:#f0f0f0;
+}
+
 

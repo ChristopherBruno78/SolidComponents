@@ -52,41 +52,41 @@ const SplitView = (props) => {
       props.minStaticLength,
       Math.min(staticLen(), props.maxStaticLength),
     );
-    const leftNode = resolvedChildren[0];
-    const bottomNode = resolvedChildren[1];
+    const $left = resolvedChildren[0];
+    const $bottom = resolvedChildren[1];
 
     if (props.flex === "topLeft") {
-      leftNode.style.flex = "1";
-      bottomNode.style.flex = "unset";
+      $left.style.flex = "1";
+      $bottom.style.flex = "unset";
       switch (props.orientation) {
         case "row":
           {
-            bottomNode.style.width = len + "px";
-            bottomNode.style.height = "100%";
-            leftNode.style.height = "100%";
+            $bottom.style.width = len + "px";
+            $bottom.style.height = "100%";
+            $left.style.height = "100%";
           }
           break;
         case "column": {
-          bottomNode.style.height = len + "px";
-          bottomNode.style.width = "100%";
-          leftNode.style.width = "100%";
+          $bottom.style.height = len + "px";
+          $bottom.style.width = "100%";
+          $left.style.width = "100%";
         }
       }
     } else {
-      leftNode.style.flex = "unset";
-      bottomNode.style.flex = "1";
+      $left.style.flex = "unset";
+      $bottom.style.flex = "1";
       switch (props.orientation) {
         case "row":
           {
-            leftNode.style.width = len + "px";
-            leftNode.style.height = "100%";
-            bottomNode.style.height = "100%";
+            $left.style.width = len + "px";
+            $left.style.height = "100%";
+            $bottom.style.height = "100%";
           }
           break;
         case "column": {
-          leftNode.style.height = len + "px";
-          leftNode.style.width = "100%";
-          bottomNode.style.width = "100%";
+          $left.style.height = len + "px";
+          $left.style.width = "100%";
+          $bottom.style.width = "100%";
         }
       }
     }
