@@ -4,9 +4,12 @@ import { createSignal, createUniqueId, children, mergeProps } from "solid-js";
 /**
  *
  * @param {{
- *     label,
- *     disabled,
- *     styleName
+ *     label: string
+ *     disabled: boolean
+ *     value: string
+ *     hidden: boolean
+ *     styleName: string
+ *     attrs: object
  * }} props
  * @returns {*}
  * @constructor
@@ -21,8 +24,11 @@ const Radio = (props) => {
  *     setGroupValue,
  *     groupValue,
  *     disabled,
+ *     hidden
  *     value,
- *     label
+ *     label,
+ *     attrs,
+ *     styleName
  * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor
@@ -32,6 +38,7 @@ const RadioButton = (props) => {
 
   const click = (evt) => {
     if (props.disabled) return;
+    evt.preventDefault();
     const oldValue = props.groupValue();
     if (props.value !== oldValue) {
       props.setGroupValue(props.value);
@@ -47,12 +54,14 @@ const RadioButton = (props) => {
       classList={{
         [styles.Radio]: true,
         [styles.disabled]: props.disabled,
+        [styles.hidden]: props.hidden,
         [props.styleName]: props.styleName,
       }}
       on:click={click}
       aria-disabled={props.disabled}
       aria-checked={props.groupValue() === props.value}
       aria-labelledby={labelId}
+      {...props.attrs}
     >
       <div
         classList={{
@@ -70,34 +79,37 @@ const RadioButton = (props) => {
 /**
  *
  * @param {{
- *     id,
- *     disabled,
- *     valueChanged,
- *     value,
- *     styleName
+ *     id: string
+ *     disabled: boolean
+ *     hidden: boolean
+ *     valueChanged: callback
+ *     value : string
+ *     styleName: string
+ *     attrs: object
  * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor
  */
 const RadioGroup = (props) => {
   const id = props.id || createUniqueId();
-  const [value, setValue] = createSignal(props.value);
-  const values = createSignal([]);
+  const [groupValue, setGroupValue] = createSignal(props.value);
+  const values = [];
   const resolvedChildren = children(() => props.children);
 
   const keyDown = (evt) => {
     if (props.disabled) return;
     const key = evt.key;
-    let i = values.indexOf(value());
+    let idx = values.indexOf(groupValue());
+    let newIdx = idx;
     if (key === "ArrowUp" || key === "ArrowLeft") {
-      i -= 1;
+      newIdx -= 1;
     } else if (key === "ArrowDown" || key === "ArrowRight") {
-      i += 1;
+      newIdx += 1;
     }
-    if (i > -1 && i < values.length) {
-      setValue(values[i]);
-      if (props.valueChanged) {
-        props.valueChanged(value());
+    if (idx !== newIdx && newIdx > -1 && newIdx < values.length) {
+      setGroupValue(values[newIdx]);
+      if (typeof props.valueChanged === "function") {
+        props.valueChanged(groupValue());
       }
     }
   };
@@ -108,10 +120,12 @@ const RadioGroup = (props) => {
       role={"radiogroup"}
       classList={{
         [styles.RadioGroup]: true,
+        [styles.hidden]: props.hidden,
         [props.styleName]: props.styleName,
       }}
       tabindex={props.disabled ? -1 : 0}
       on:keydown={keyDown}
+      {...props.attrs}
     >
       {resolvedChildren().map((child, index) => {
         child.value = child.value || index;
@@ -121,8 +135,8 @@ const RadioGroup = (props) => {
           <RadioButton
             {...mergeProps(child, {
               key: index,
-              setGroupValue: setValue,
-              groupValue: value,
+              setGroupValue: setGroupValue,
+              groupValue: groupValue,
               valueChanged: props.valueChanged,
               disabled: disabled,
             })}

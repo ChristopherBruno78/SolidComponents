@@ -3,19 +3,19 @@ import { createMemo, createSignal, createUniqueId } from "solid-js";
 
 /**
  * @param {{
- *     id
- *     type,
- *     label,
- *     icon,
- *     iconOnly,
- *     onClick,
- *     styleName,
- *     tooltip,
- *     toggle,
- *     onToggle,
- *     disabled,
- *     hidden,
- *     attrs
+ *     id: string
+ *     type: string,
+ *     label: string,
+ *     icon: string,
+ *     iconOnly:boolean,
+ *     onClick:callback,
+ *     styleName:string,
+ *     tooltip:string,
+ *     toggle: boolean,
+ *     onToggle: callback,
+ *     disabled: boolean,
+ *     hidden: boolean,
+ *     attrs: object
  * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor

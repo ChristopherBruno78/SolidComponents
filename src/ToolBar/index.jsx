@@ -3,11 +3,10 @@ import { createUniqueId } from "solid-js";
 
 /**
  * @param {{
- *     id
- *     styleName,
- *     hidden
- *     children,
- *     attrs
+ *     id: string
+ *     styleName: string
+ *     hidden: boolean
+ *     attrs: object
  * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor

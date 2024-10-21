@@ -5,15 +5,20 @@ import { Router } from "@solidjs/router";
 import "./index.css";
 import ToolBarTest from "./ToolBarTest";
 import ControlsTest from "./ControlsTest";
+import SplitViewTest from "./SplitViewTest";
 
 const routes = [
   {
     path: "toolbar",
-    component: <ToolBarTest />,
+    component: /*@once*/ <ToolBarTest />,
   },
   {
     path: "controls",
-    component: <ControlsTest />,
+    component: /*@once*/ <ControlsTest />,
+  },
+  {
+    path: "splitview",
+    component: /*@once*/ <SplitViewTest />,
   },
 ];
 

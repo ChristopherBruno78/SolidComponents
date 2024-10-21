@@ -4,12 +4,12 @@ import { createSignal, createUniqueId } from "solid-js";
 /**
  *
  * @param {{
- *     id,
- *     styleName,
- *     label,
- *     disabled,
- *     hidden,
- *     attrs
+ *     id: string
+ *     label: string,
+ *     disabled: boolean,
+ *     hidden: boolean,
+ *     styleName: string,
+ *     attrs: object
  * }} props
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
  * @constructor

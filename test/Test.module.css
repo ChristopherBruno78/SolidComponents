@@ -25,3 +25,13 @@
    width:34px;
    height:34px;
 }
+
+.leftView {
+   background:#d0d0d0;
+}
+
+.rightView {
+   background: yellowgreen;
+}
+
+

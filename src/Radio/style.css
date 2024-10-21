@@ -92,5 +92,5 @@ ul.RadioGroup:focus,
 }
 
 .RadioGroup:focus .Radio .indicator.checked {
-    outline: var(--focus-outline);
+    outline: 1px solid var(--accent-color-darker);
 }
