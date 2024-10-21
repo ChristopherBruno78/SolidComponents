@@ -82,7 +82,7 @@ const RadioButton = (props) => {
  *     id: string
  *     disabled: boolean
  *     hidden: boolean
- *     valueChanged: callback
+ *     valueChanged: function
  *     value : string
  *     styleName: string
  *     attrs: object

@@ -1,5 +1,11 @@
 import styles from "../Components.module.css";
-import { children, createEffect, createSignal, mergeProps } from "solid-js";
+import {
+  children,
+  createEffect,
+  createSignal,
+  createUniqueId,
+  mergeProps,
+} from "solid-js";
 
 /**
  * @typedef {"column" | "row"} SplitViewOrientation
@@ -7,8 +13,8 @@ import { children, createEffect, createSignal, mergeProps } from "solid-js";
  */
 
 /**
- *
  * @param {{
+ *     id: string,
  *     orientation: SplitViewOrientation
  *     flex: SplitViewFlex
  *     dividerThickness: number,
@@ -23,6 +29,7 @@ import { children, createEffect, createSignal, mergeProps } from "solid-js";
 const SplitView = (props) => {
   props = mergeProps(
     {
+      id: createUniqueId(),
       orientation: "row",
       flex: "topLeft",
       dividerThickness: 13,
@@ -87,6 +94,7 @@ const SplitView = (props) => {
 
   return (
     <div
+      id={props.id}
       classList={{
         [styles.SplitView]: true,
         [styles.row]: props.orientation === "row",

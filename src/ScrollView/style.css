@@ -1,0 +1,37 @@
+.Scroller {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+:global(.simplebar-offset) {
+    max-width:100%;
+}
+
+:global(.simplebar-scrollbar) {
+    opacity:1.0;
+}
+
+:global(.simplebar-scrollbar)::before {
+    background-color: #707070 !important;
+    left:4px;
+    right:4px;
+}
+
+:global(.simplebar-dragging) :global(.simplebar-scrollbar)::before {
+    background-color: #333 !important;
+}
+
+:global(.simplebar-container) {
+    outline:none;
+}
+
+:global(.simplebar-track) {
+    background-color:rgba(70, 73, 73, 0.1);
+}
+
+:global(.simplebar-track):global(.simplebar-vertical) {
+    width:16px;
+}

@@ -1,5 +1,5 @@
 import styles from "./Test.module.css";
-import { SplitView } from "../src";
+import { ScrollView, SplitView } from "../src";
 
 const SplitViewTest = (props) => {
   return (
@@ -7,7 +7,24 @@ const SplitViewTest = (props) => {
       <div className={styles.leftView}></div>
       <SplitView dividerThickness={14} orientation={"column"}>
         <div className={styles.rightView} />
-        <div className={styles.bottomView} />
+        <ScrollView>
+          <div className={styles.bottomView}>
+            <ul>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+          </div>
+        </ScrollView>
       </SplitView>
     </SplitView>
   );
